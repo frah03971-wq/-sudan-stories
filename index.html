@@ -29,6 +29,7 @@
             color: var(--sudan-white);
             min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* تأثيرات الخلفية */
@@ -50,7 +51,7 @@
         .navbar {
             background: rgba(26, 26, 26, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -71,7 +72,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--sudan-white);
             text-decoration: none;
@@ -79,12 +80,12 @@
 
         .logo i {
             color: var(--sudan-red);
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -94,29 +95,15 @@
             font-weight: 500;
             transition: all 0.3s;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover, .nav-links a.active {
             color: var(--sudan-white);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            right: 0;
-            width: 0;
-            height: 2px;
-            background: var(--sudan-red);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
         .btn {
-            padding: 0.7rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -127,6 +114,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
@@ -140,21 +128,23 @@
             box-shadow: 0 6px 20px rgba(210, 16, 52, 0.6);
         }
 
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--sudan-green);
-            color: var(--sudan-green);
+        .btn-donate {
+            background: linear-gradient(135deg, var(--sudan-green), #00a33d);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 114, 41, 0.4);
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
         }
 
-        .btn-secondary:hover {
-            background: var(--sudan-green);
-            color: white;
+        .btn-donate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 114, 41, 0.6);
         }
 
         /* المحتوى الرئيسي */
         .main-content {
             margin-top: 80px;
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -178,11 +168,11 @@
         /* الصفحة الرئيسية */
         .hero {
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--sudan-white), var(--sudan-red));
             -webkit-background-clip: text;
@@ -192,8 +182,30 @@
 
         .hero p {
             color: var(--text-gray);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .donate-banner {
+            background: linear-gradient(135deg, rgba(0, 114, 41, 0.2), rgba(0, 114, 41, 0.1));
+            border: 2px solid var(--sudan-green);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .donate-banner h3 {
+            color: var(--sudan-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .donate-banner p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         /* بطاقات القصص */
@@ -217,14 +229,14 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            right: 0;
             width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, var(--sudan-red), var(--sudan-green));
         }
 
         .story-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border-color: rgba(210, 16, 52, 0.3);
         }
@@ -234,6 +246,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .author-info {
@@ -252,16 +266,18 @@
             justify-content: center;
             font-weight: bold;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .author-details h4 {
             color: var(--sudan-white);
             font-size: 1rem;
+            margin-bottom: 2px;
         }
 
         .author-details span {
             color: var(--text-gray);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .story-badge {
@@ -269,31 +285,62 @@
             color: var(--sudan-red);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
+        }
+
+        .story-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--sudan-white);
+            line-height: 1.4;
         }
 
         .story-content {
             color: var(--text-gray);
             line-height: 1.8;
             margin-bottom: 1rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
-        .story-content.truncated {
+        .story-preview {
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            max-height: 120px;
+            position: relative;
         }
 
-        .read-more {
+        .story-preview::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(transparent, var(--card-bg));
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
             color: var(--sudan-red);
             cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
             font-weight: 700;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            margin-bottom: 1rem;
+            padding: 0;
+        }
+
+        .read-more-btn:hover {
+            color: #ff1a4a;
         }
 
         .story-actions {
@@ -301,6 +348,7 @@
             gap: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid rgba(255,255,255,0.1);
+            align-items: center;
         }
 
         .action-btn {
@@ -312,25 +360,54 @@
             align-items: center;
             gap: 5px;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
+            padding: 0.3rem 0.5rem;
+            border-radius: 8px;
         }
 
         .action-btn:hover {
             color: var(--sudan-white);
+            background: rgba(255,255,255,0.05);
         }
 
         .action-btn.liked {
             color: var(--sudan-red);
         }
 
-        .action-btn.liked i {
-            animation: heartBeat 0.3s;
+        .action-btn.loved {
+            color: #e74c3c;
         }
 
-        @keyframes heartBeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+        .action-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* صفحة القصة الكاملة */
+        .full-story {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .full-story-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .full-story-content {
+            color: var(--text-gray);
+            line-height: 2;
+            font-size: 1.05rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            margin-bottom: 1.5rem;
         }
 
         /* نموذج كتابة القصة */
@@ -367,25 +444,34 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--sudan-red);
         }
 
         .form-group textarea {
-            min-height: 200px;
+            min-height: 250px;
             resize: vertical;
+            line-height: 1.8;
+        }
+
+        .char-count {
+            text-align: left;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
         }
 
         .privacy-options {
             display: flex;
             gap: 1rem;
             margin-top: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .privacy-option {
             flex: 1;
+            min-width: 140px;
             padding: 1rem;
             border: 2px solid rgba(255,255,255,0.1);
             border-radius: 10px;
@@ -406,27 +492,35 @@
             display: block;
         }
 
+        .privacy-option div {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .privacy-option small {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+
         /* نموذج تسجيل الدخول */
         .auth-container {
             max-width: 400px;
             margin: 2rem auto;
             background: var(--card-bg);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
         .auth-container h2 {
             text-align: center;
-            margin-bottom: 2rem;
-            color: var(--sudan-white);
+            margin-bottom: 1.5rem;
         }
 
         .auth-tabs {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .auth-tab {
@@ -458,8 +552,8 @@
         /* زر التبرع العائم */
         .donate-float {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             z-index: 999;
         }
 
@@ -477,11 +571,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .donate-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 6px 30px rgba(0, 114, 41, 0.6);
+            transform: scale(1.1);
+        }
+
+        .donate-btn::after {
+            content: 'ادعم الأسر المتضررة';
+            position: absolute;
+            right: 70px;
+            background: var(--sudan-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .donate-btn:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         /* Toast notifications */
@@ -499,11 +615,17 @@
             opacity: 0;
             transition: all 0.3s;
             z-index: 2000;
+            text-align: center;
+            max-width: 90%;
         }
 
         .toast.show {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.error {
+            border-right-color: var(--sudan-red);
         }
 
         /* Responsive */
@@ -513,11 +635,19 @@
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .main-content {
                 padding: 1rem;
+            }
+
+            .story-card {
+                padding: 1.2rem;
+            }
+
+            .donate-btn::after {
+                display: none;
             }
         }
 
@@ -546,6 +676,56 @@
             font-size: 4rem;
             margin-bottom: 1rem;
             opacity: 0.5;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid var(--sudan-green);
+        }
+
+        .modal-content h3 {
+            color: var(--sudan-green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .modal-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .modal-buttons .btn {
+            flex: 1;
         }
     </style>
 </head>
@@ -579,46 +759,67 @@
             <div class="hero">
                 <h1>صوت كل سوداني</h1>
                 <p>منصة آمنة ومجهولة لكل من عاش الحرب ويريد أن يشارك قصته مع العالم</p>
-                <button class="btn btn-primary" onclick="showPage('write')" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                
+                <!-- بانر التبرع -->
+                <div class="donate-banner">
+                    <h3><i class="fas fa-hand-holding-heart"></i> مساهمة للأسر المتضررة</h3>
+                    <p>تبرعك يساعد في إيصال المساعدات للأسر المتضررة في السودان</p>
+                    <a href="https://t.me/MthoBot" target="_blank" class="btn btn-donate">
+                        <i class="fas fa-donate"></i>
+                        تبرع الآن عبر Telegram
+                    </a>
+                </div>
+
+                <button class="btn btn-primary" onclick="showPage('write')" style="font-size: 1.1rem; padding: 1rem 2rem; margin-top: 1rem;">
                     <i class="fas fa-pen"></i>
                     اكتب قصتك الآن
                 </button>
             </div>
 
             <div class="stories-feed" id="storiesContainer">
-                <!-- القصص ستضاف هنا ديناميكياً -->
+                <!-- القصص ستضاف هنا -->
             </div>
+        </div>
+
+        <!-- صفحة القصة الكاملة -->
+        <div id="story" class="page">
+            <button class="btn btn-secondary back-btn" onclick="showPage('home')">
+                <i class="fas fa-arrow-right"></i>
+                رجوع للقصص
+            </button>
+            <div id="fullStoryContainer"></div>
         </div>
 
         <!-- صفحة كتابة القصة -->
         <div id="write" class="page">
-            <h2 style="margin-bottom: 2rem; text-align: center;">✍️ اكتب قصتك</h2>
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">✍️ اكتب قصتك</h2>
             
             <div class="write-story-form">
                 <div class="form-group">
-                    <label>عنوان القصة</label>
+                    <label>عنوان القصة *</label>
                     <input type="text" id="storyTitle" placeholder="مثال: يوم غادرنا البيت..." required>
                 </div>
 
                 <div class="form-group">
                     <label>المنطقة/المدينة</label>
-                    <input type="text" id="storyLocation" placeholder="مثال: الخرطوم، بحري">
+                    <input type="text" id="storyLocation" placeholder="مثال: الخرطوم، بحري، أم درمان...">
                 </div>
 
                 <div class="form-group">
-                    <label>قصتك</label>
-                    <textarea id="storyContent" placeholder="اكتب ما في قلبك... كل ما تمر به سيظل سراً بينك وبين القارئ" required></textarea>
+                    <label>قصتك *</label>
+                    <textarea id="storyContent" placeholder="اكتب ما في قلبك... كل ما تمر به سيظل سراً بينك وبين القارئ. اكتب بحرية وصدق." required oninput="updateCharCount()"></textarea>
+                    <div class="char-count" id="charCount">0 حرف</div>
                 </div>
 
                 <div class="form-group">
                     <label>نوع الكتابة</label>
                     <div class="privacy-options">
-                        <div class="privacy-option selected" onclick="selectPrivacy('anonymous')">
+                        <div class="privacy-option selected" onclick="selectPrivacy('anonymous', this)">
                             <i class="fas fa-user-secret"></i>
                             <div>مجهول الهوية</div>
                             <small>اسم مستعار عشوائي</small>
                         </div>
-                        <div class="privacy-option" onclick="selectPrivacy('nickname')">
+                        <div class="privacy-option" onclick="selectPrivacy('nickname', this)">
                             <i class="fas fa-mask"></i>
                             <div>اسم مستعار</div>
                             <small>اختر اسمك بنفسك</small>
@@ -669,7 +870,7 @@
                     </div>
                     <div class="form-group">
                         <label>كلمة المرور</label>
-                        <input type="password" id="regPassword" required placeholder="••••••••">
+                        <input type="password" id="regPassword" required placeholder="••••••••" minlength="6">
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">
                         إنشاء حساب
@@ -680,9 +881,9 @@
 
         <!-- صفحة عن الموقع -->
         <div id="about" class="page">
-            <div style="text-align: center; padding: 2rem;">
-                <h1 style="margin-bottom: 2rem; color: var(--sudan-red);">عن حكايات السودان</h1>
-                <p style="font-size: 1.2rem; line-height: 2; color: var(--text-gray); margin-bottom: 2rem;">
+            <div style="text-align: center; padding: 1rem;">
+                <h1 style="margin-bottom: 1.5rem; color: var(--sudan-red);">عن حكايات السودان</h1>
+                <p style="font-size: 1.1rem; line-height: 2; color: var(--text-gray); margin-bottom: 2rem;">
                     منصة إلكترونية سودانية تهدف إلى توثيق قصص الناجين من الحرب في السودان.
                     <br><br>
                     نؤمن بأن كل قصة مهمة، وكل صوت يستحق أن يسمع.
@@ -690,9 +891,9 @@
                     المنصة مجهولة الهوية تماماً لحماية خصوصية القصص والقصاصين.
                 </p>
                 
-                <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; margin: 2rem 0;">
-                    <h3 style="color: var(--sudan-green); margin-bottom: 1rem;">🔒 الأمان والخصوصية</h3>
-                    <ul style="list-style: none; text-align: right; color: var(--text-gray); line-height: 2;">
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 15px; margin: 2rem 0; text-align: right;">
+                    <h3 style="color: var(--sudan-green); margin-bottom: 1rem; text-align: center;">🔒 الأمان والخصوصية</h3>
+                    <ul style="list-style: none; color: var(--text-gray); line-height: 2;">
                         <li><i class="fas fa-check" style="color: var(--sudan-green); margin-left: 10px;"></i> لا نطلب أي معلومات شخصية حقيقية</li>
                         <li><i class="fas fa-check" style="color: var(--sudan-green); margin-left: 10px;"></i> جميع القصص تُنشر بأسماء مستعارة</li>
                         <li><i class="fas fa-check" style="color: var(--sudan-green); margin-left: 10px;"></i> تشفير كامل للبيانات</li>
@@ -700,9 +901,10 @@
                     </ul>
                 </div>
 
-                <div style="margin-top: 3rem;">
-                    <h3 style="margin-bottom: 1rem;">للدعم والتبرع</h3>
-                    <a href="https://t.me/MthoBot" target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 2rem;">
+                <div style="background: linear-gradient(135deg, rgba(0, 114, 41, 0.2), rgba(0, 114, 41, 0.1)); border: 2px solid var(--sudan-green); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                    <h3 style="color: var(--sudan-green); margin-bottom: 1rem;">💚 للدعم والتبرع</h3>
+                    <p style="color: var(--text-gray); margin-bottom: 1.5rem;">مساهمتك تساعد الأسر المتضررة في السودان</p>
+                    <a href="https://t.me/MthoBot" target="_blank" class="btn btn-donate" style="font-size: 1.1rem;">
                         <i class="fab fa-telegram"></i>
                         تواصل معنا عبر Telegram
                     </a>
@@ -713,9 +915,24 @@
 
     <!-- زر التبرع العائم -->
     <div class="donate-float">
-        <a href="https://t.me/MthoBot" target="_blank" class="donate-btn" title="ادعم الموقع">
+        <a href="https://t.me/MthoBot" target="_blank" class="donate-btn" title="ادعم الأسر المتضررة">
             <i class="fas fa-heart"></i>
         </a>
+    </div>
+
+    <!-- Modal للتبرع -->
+    <div id="donateModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3><i class="fas fa-hand-holding-heart"></i> مساهمة للأسر المتضررة</h3>
+            <p>تبرعك يساعد في إيصال المساعدات الغذائية والطبية للأسر المتضررة في مختلف مناطق السودان</p>
+            <div class="modal-buttons">
+                <a href="https://t.me/MthoBot" target="_blank" class="btn btn-donate">
+                    <i class="fab fa-telegram"></i>
+                    تبرع عبر Telegram
+                </a>
+                <button class="btn btn-secondary" onclick="closeModal()">إغلاق</button>
+            </div>
+        </div>
     </div>
 
     <!-- Toast Notification -->
@@ -723,39 +940,41 @@
 
     <script>
         // ====== إدارة البيانات ======
-        
-        // تهيئة البيانات
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         let stories = JSON.parse(localStorage.getItem('stories')) || [];
-        
+        let currentStoryId = null;
+
         // أسماء مستعارة سودانية تقليدية
         const sudaneseNames = [
             'الخرطومي الحزين', 'صوت من بحري', 'أم درمانية', 'الجريح الصامت',
             'بنت النيل', 'ولد البادية', 'الهارب من الجحيم', 'صوت الحرب',
-            'النازح المجهول', 'عين على الوطن', 'قلب مكسور', 'أمل السودان'
+            'النازح المجهول', 'عين على الوطن', 'قلب مكسور', 'أمل السودان',
+            'شاهد على العصر', 'صوت المظلوم', 'السودان في القلب'
         ];
 
         // ====== التنقل بين الصفحات ======
-        function showPage(pageName) {
-            // إخفاء جميع الصفحات
+        function showPage(pageName, storyId = null) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // إظهار الصفحة المطلوبة
             document.getElementById(pageName).classList.add('active');
             
             // تحديث الروابط النشطة
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
+                if (link.getAttribute('onclick')?.includes(pageName)) {
+                    link.classList.add('active');
+                }
             });
             
-            // تحديث زر تسجيل الدخول
             updateAuthButton();
             
-            // تحميل القصص إذا كنا في الرئيسية
             if (pageName === 'home') {
                 loadStories();
+                currentStoryId = null;
+            } else if (pageName === 'story' && storyId) {
+                showFullStory(storyId);
             }
             
             window.scrollTo(0, 0);
@@ -794,9 +1013,8 @@
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 showToast('✅ مرحباً بعودتك ' + user.name);
                 showPage('home');
-                updateAuthButton();
             } else {
-                showToast('❌ البريد أو كلمة المرور غير صحيحة');
+                showToast('❌ البريد أو كلمة المرور غير صحيحة', 'error');
             }
         }
 
@@ -809,7 +1027,7 @@
             const users = JSON.parse(localStorage.getItem('users')) || [];
             
             if (users.find(u => u.email === email)) {
-                showToast('❌ هذا البريد مسجل مسبقاً');
+                showToast('❌ هذا البريد مسجل مسبقاً', 'error');
                 return;
             }
             
@@ -822,21 +1040,24 @@
             
             showToast('✅ تم إنشاء الحساب بنجاح!');
             showPage('home');
-            updateAuthButton();
         }
 
         function logout() {
             currentUser = null;
             localStorage.removeItem('currentUser');
             showToast('👋 تم تسجيل الخروج');
-            updateAuthButton();
             showPage('home');
         }
 
         // ====== نظام القصص ======
-        function selectPrivacy(type) {
+        function updateCharCount() {
+            const content = document.getElementById('storyContent').value;
+            document.getElementById('charCount').textContent = content.length + ' حرف';
+        }
+
+        function selectPrivacy(type, element) {
             document.querySelectorAll('.privacy-option').forEach(opt => opt.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
+            element.classList.add('selected');
             
             const nicknameInput = document.getElementById('nicknameInput');
             if (type === 'nickname') {
@@ -848,24 +1069,28 @@
         }
 
         function submitStory() {
-            const title = document.getElementById('storyTitle').value;
-            const location = document.getElementById('storyLocation').value;
-            const content = document.getElementById('storyContent').value;
-            const nickname = document.getElementById('nicknameInput').value;
+            const title = document.getElementById('storyTitle').value.trim();
+            const location = document.getElementById('storyLocation').value.trim();
+            const content = document.getElementById('storyContent').value.trim();
+            const nickname = document.getElementById('nicknameInput').value.trim();
             
             if (!title || !content) {
-                showToast('❌ الرجاء ملء جميع الحقول المطلوبة');
+                showToast('❌ الرجاء ملء عنوان القصة والمحتوى', 'error');
                 return;
             }
             
-            // تحديد اسم الكاتب
+            if (content.length < 50) {
+                showToast('❌ القصة قصيرة جداً (50 حرف على الأقل)', 'error');
+                return;
+            }
+            
             let authorName;
             const isAnonymous = document.querySelectorAll('.privacy-option')[0].classList.contains('selected');
             
             if (isAnonymous) {
                 authorName = sudaneseNames[Math.floor(Math.random() * sudaneseNames.length)];
             } else {
-                authorName = nickname || 'مجهول الهوية';
+                authorName = nickname || sudaneseNames[Math.floor(Math.random() * sudaneseNames.length)];
             }
             
             const newStory = {
@@ -889,6 +1114,7 @@
             document.getElementById('storyLocation').value = '';
             document.getElementById('storyContent').value = '';
             document.getElementById('nicknameInput').value = '';
+            document.getElementById('charCount').textContent = '0 حرف';
             
             showToast('✅ تم نشر قصتك بنجاح!');
             showPage('home');
@@ -903,6 +1129,9 @@
                         <i class="fas fa-book-open"></i>
                         <h3>لا توجد قصص بعد</h3>
                         <p>كن أول من يشارك قصته مع العالم</p>
+                        <button class="btn btn-primary" onclick="showPage('write')" style="margin-top: 1rem;">
+                            اكتب قصتك الآن
+                        </button>
                     </div>
                 `;
                 return;
@@ -913,6 +1142,8 @@
 
         function createStoryCard(story) {
             const date = new Date(story.timestamp).toLocaleDateString('ar-SD');
+            const isLong = story.content.length > 200;
+            const preview = isLong ? story.content.substring(0, 200) + '...' : story.content;
             const isLiked = currentUser && story.likedBy.includes(currentUser.id);
             const isLoved = currentUser && story.lovedBy.includes(currentUser.id);
             
@@ -929,25 +1160,25 @@
                         <span class="story-badge">قصة ناجٍ</span>
                     </div>
                     
-                    <h3 style="margin-bottom: 1rem; color: var(--sudan-white);">${story.title}</h3>
+                    <h3 class="story-title">${story.title}</h3>
                     
-                    <div class="story-content truncated" id="content-${story.id}">
-                        ${story.content}
+                    <div class="story-content ${isLong ? 'story-preview' : ''}" id="preview-${story.id}">
+                        ${isLong ? preview : story.content}
                     </div>
                     
-                    ${story.content.length > 150 ? `
-                        <span class="read-more" onclick="toggleReadMore(${story.id})">
-                            قراءة المزيد <i class="fas fa-chevron-down"></i>
-                        </span>
+                    ${isLong ? `
+                        <button class="read-more-btn" onclick="showPage('story', ${story.id})">
+                            قراءة القصة كاملة <i class="fas fa-arrow-left"></i>
+                        </button>
                     ` : ''}
                     
                     <div class="story-actions">
-                        <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${story.id})">
+                        <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${story.id}, event)">
                             <i class="fas fa-thumbs-up"></i>
                             <span>${story.likes || 0}</span>
                         </button>
                         
-                        <button class="action-btn ${isLoved ? 'liked' : ''}" onclick="toggleLove(${story.id})" style="${isLoved ? 'color: #e74c3c;' : ''}">
+                        <button class="action-btn ${isLoved ? 'loved' : ''}" onclick="toggleLove(${story.id}, event)">
                             <i class="fas fa-heart"></i>
                             <span>${story.loved || 0}</span>
                         </button>
@@ -961,22 +1192,61 @@
             `;
         }
 
-        function toggleReadMore(id) {
-            const content = document.getElementById(`content-${id}`);
-            const btn = event.currentTarget;
+        function showFullStory(storyId) {
+            const story = stories.find(s => s.id === storyId);
+            if (!story) return;
             
-            if (content.classList.contains('truncated')) {
-                content.classList.remove('truncated');
-                btn.innerHTML = 'عرض أقل <i class="fas fa-chevron-up"></i>';
-            } else {
-                content.classList.add('truncated');
-                btn.innerHTML = 'قراءة المزيد <i class="fas fa-chevron-down"></i>';
-            }
+            currentStoryId = storyId;
+            const date = new Date(story.timestamp).toLocaleDateString('ar-SD');
+            const isLiked = currentUser && story.likedBy.includes(currentUser.id);
+            const isLoved = currentUser && story.lovedBy.includes(currentUser.id);
+            
+            const container = document.getElementById('fullStoryContainer');
+            container.innerHTML = `
+                <div class="full-story">
+                    <div class="full-story-header">
+                        <div class="story-header">
+                            <div class="author-info">
+                                <div class="avatar">${story.author.charAt(0)}</div>
+                                <div class="author-details">
+                                    <h4>${story.author}</h4>
+                                    <span>${story.location} • ${date}</span>
+                                </div>
+                            </div>
+                            <span class="story-badge">قصة ناجٍ</span>
+                        </div>
+                        <h1 style="font-size: 1.8rem; margin-top: 1rem; color: var(--sudan-white);">${story.title}</h1>
+                    </div>
+                    
+                    <div class="full-story-content">
+                        ${story.content.replace(/\n/g, '<br>')}
+                    </div>
+                    
+                    <div class="story-actions" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+                        <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(${story.id}, event)">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>${story.likes || 0} إعجاب</span>
+                        </button>
+                        
+                        <button class="action-btn ${isLoved ? 'loved' : ''}" onclick="toggleLove(${story.id}, event)">
+                            <i class="fas fa-heart"></i>
+                            <span>${story.loved || 0} تفاعل</span>
+                        </button>
+                        
+                        <button class="action-btn" onclick="shareStory(${story.id})">
+                            <i class="fas fa-share"></i>
+                            مشاركة القصة
+                        </button>
+                    </div>
+                </div>
+            `;
         }
 
-        function toggleLike(id) {
+        function toggleLike(id, event) {
+            event.stopPropagation();
+            
             if (!currentUser) {
-                showToast('❌ الرجاء تسجيل الدخول أولاً');
+                showToast('❌ الرجاء تسجيل الدخول أولاً', 'error');
                 showPage('login');
                 return;
             }
@@ -994,12 +1264,19 @@
             }
             
             localStorage.setItem('stories', JSON.stringify(stories));
-            loadStories();
+            
+            if (currentStoryId === id) {
+                showFullStory(id);
+            } else {
+                loadStories();
+            }
         }
 
-        function toggleLove(id) {
+        function toggleLove(id, event) {
+            event.stopPropagation();
+            
             if (!currentUser) {
-                showToast('❌ الرجاء تسجيل الدخول أولاً');
+                showToast('❌ الرجاء تسجيل الدخول أولاً', 'error');
                 showPage('login');
                 return;
             }
@@ -1017,28 +1294,46 @@
             }
             
             localStorage.setItem('stories', JSON.stringify(stories));
-            loadStories();
+            
+            if (currentStoryId === id) {
+                showFullStory(id);
+            } else {
+                loadStories();
+            }
         }
 
         function shareStory(id) {
             const story = stories.find(s => s.id === id);
+            const shareText = `${story.title}\n\n${story.content.substring(0, 100)}...\n\n#حكايات_السودان`;
+            
             if (navigator.share) {
                 navigator.share({
                     title: story.title,
-                    text: story.content.substring(0, 100) + '...',
+                    text: shareText,
                     url: window.location.href
                 });
             } else {
-                // نسخ الرابط
-                navigator.clipboard.writeText(window.location.href);
-                showToast('✅ تم نسخ الرابط');
+                navigator.clipboard.writeText(shareText + '\n' + window.location.href);
+                showToast('✅ تم نسخ القصة للمشاركة');
             }
         }
 
-        // ====== مساعدات ======
-        function showToast(message) {
+        // ====== Modal ======
+        function showDonateModal() {
+            document.getElementById('donateModal').classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'donateModal' || event.target.tagName === 'BUTTON') {
+                document.getElementById('donateModal').classList.remove('active');
+            }
+        }
+
+        // ====== Toast ======
+        function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
             toast.textContent = message;
+            toast.className = 'toast ' + (type === 'error' ? 'error' : '');
             toast.classList.add('show');
             
             setTimeout(() => {
@@ -1046,10 +1341,43 @@
             }, 3000);
         }
 
-        // تهيئة الصفحة
+        // ====== تهيئة ======
         window.onload = function() {
             updateAuthButton();
             loadStories();
+            
+            // إضافة قصص تجريبية لو مافي قصص
+            if (stories.length === 0) {
+                const sampleStories = [
+                    {
+                        id: 1,
+                        title: "يوم غادرنا البيت",
+                        location: "الخرطوم",
+                        content: "كان يوم الجمعة، الساعة ٥ الفجر. سمعنا صوت انفجارات قريبة جداً. أمي صحتنا بسرعة وقالت نلبس ونخرج فوراً. ما خدنا غير شنط صغيرة. البيت اللي عشنا فيه ٢٠ سنة، تركناه في ١٠ دقايق. كنت ببص للوراء وأنا ماشي، شايف الدخان بيطلع من حارتنا. لحد النهار ده ما عرفنا وين صحابنا وجراننا. كل ما أفتكر البيت، بفتكر ريحة المطبخ بتاع أمي. كنا فاكرين الحرب حاجة بتيجي وتروح بسرعة، لكن للأسف طولت.",
+                        author: "الخرطومي الحزين",
+                        likes: 12,
+                        loved: 8,
+                        timestamp: new Date(Date.now() - 86400000).toISOString(),
+                        likedBy: [],
+                        lovedBy: []
+                    },
+                    {
+                        id: 2,
+                        title: "رحلة النزوح",
+                        location: "بحري",
+                        content: "مشينا ٣ أيام عشان نوصل مدني. كنا عايلة كبيرة، ٨ أفراد. الطريق كان خطر، في كل لحظة كنا خايفين من الكمائن. أبوي قرر نمشي ليل عشان نتجنب المشاكل. يوم التالت، مرضت أختي الصغيرة وما قدرت تمشي. رجل كريم وقف لينا وساعدنا يوصلها لمستشفى. لسه متذكرين فضله. الحمدلله على كل حال، دلوقتنا في مدني، لكن قلوبنا لسه في الخرطوم.",
+                        author: "بنت النيل",
+                        likes: 25,
+                        loved: 18,
+                        timestamp: new Date(Date.now() - 172800000).toISOString(),
+                        likedBy: [],
+                        lovedBy: []
+                    }
+                ];
+                stories = sampleStories;
+                localStorage.setItem('stories', JSON.stringify(stories));
+                loadStories();
+            }
         };
     </script>
 </body>
